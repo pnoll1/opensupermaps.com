@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+  {% block description %}
+  <meta name="description" content="OpenSuperMaps Contact Info">
+  {% endblock %}
+  {% block title %}
+  <title>OpenSuperMaps Contact</title>
+  {% endblock %}
+  {% block css %}
+  <link href="{{static}}/css/starter-template.css" rel="stylesheet">
+  {% endblock %}
+  {% block cover_classes %}
+  {#<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">#}
+   {% endblock %}
+   {% block photo %}
+   <div class="row">
+     <div class="col-xs-12">
+       <picture>
+         <source srcset="{{static}}/images/hurricane_ridge.jpg" media="(min-width: 700px)">
+         <source srcset="{{static}}/images/hurricane_ridge_cropped.jpg">
+         <img class="img-responsive pic" src="hurricane_ridge.jpg">
+       </picture>
+     </div>
+   </div>
+   {% endblock %}
+   {% block search %}
+       <div class="row search">
+
+   {% endblock %}
+      {% block contact %}
+      {% endblock %}
+   {% block content %}
+     {#}<div class="inner cover">#}
+       <div class="starter-template">
+           <p>Q: How do I use the files?<br>
+           A: Download the files to your device and open them. OSMAnd will load the files. You can delete the copy in the downloads folder after loading.</p>
+           <p>Q: How do I search for addresses?<br>
+           A: Use the abbreviated address form i.e. 612 nw 56th st seattle</p>
+           <p>Q: Why do I see duplicate addresses?<br>
+           A: The data from OpenAddresses(OA) and OpenStreetMap(OSM) are slightly different. Data from OpenAddresses will be abbreviated i.e. 612 nw 56th st seattle while data from OSM
+           will be expanded i.e. 612 northwest 56th street seattle. Since they aren't exact matches deduplicating them takes a good deal of work that hasn't happened yet.</p>
+           <p>Q: Why does OSMAnd keep asking if I want to download an area I got from OpenSuperMaps?<br>
+           A: The super mapfiles have different names from the default files. You can turn off the notification by going to hamburger menu > Settings > OsmAnd settings > Dialogs and notifications > Download map dialog and setting to off.</p>
+           <p>Q: Where does the data come from?<br>
+           A: OpenStreetMap and OpenAddresses</p>
+           <p>Q: Where can I find more info?<br>
+           A: <a href="https://github.com/pnoll1/osmand_map_creation">Github Repo</a></p>
+          </div>
+        {#</div>#}
+      {% endblock %}
+      {% block cover_classes_close %}
+{#    </div>
+</div>#}
+  {% endblock %}
+  {% block js %}
+
+  {% endblock %}

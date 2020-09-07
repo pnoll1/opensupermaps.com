@@ -1,0 +1,94 @@
+body {
+  padding-top: 50px;
+}
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 18px;
+}
+li {
+  font-size: 18px;
+}
+.starter-template {
+  padding: 0px 15px;
+  text-align: left;
+}
+.form-control{
+  width:80%;
+  display: inline;
+}
+.date {
+  font-size: 120%;
+  }
+
+.iconize{
+  height: 40px;
+  margin-top: 1rem;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.logos{
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 0px
+}
+.map{
+    height:50vh;
+    }
+.coverage_map{
+    height:30vh;
+}
+.legend {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+.counter{
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color: #555;
+}
+.mail {
+  font-size: 38px;
+}
+.search{
+  margin-top:1rem;
+}
+
+#contact::before {
+  display: block;
+  content: " ";
+  margin-top: -40px;
+  height: 40px;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .logos{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .iconize{
+    margin-top: 0px;
+  }
+  #contact::before {
+
+  }
