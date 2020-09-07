@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'', include('free.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^markdownx/', include('markdownx.urls')),
+    # url(r'^admin/', admin.site.urls),
+    # url(r'^markdownx/', include('markdownx.urls')),
 ]
