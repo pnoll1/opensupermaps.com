@@ -41,7 +41,7 @@ def list_map_files(directory):
 def downloads(request):
     context = {}
     context['static'] = '/static'
-    files_obf, files_mwm = list_map_files('./free/static/downloads')
+    files_obf, files_mwm = list_map_files('static/downloads')
     context['files_obf'] = files_obf
     context['files_mwm'] = files_mwm
     # check if user logged in
