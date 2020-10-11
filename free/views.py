@@ -30,10 +30,12 @@ def list_map_files(directory):
         modified_time = datetime.datetime.fromtimestamp(file.stat().st_mtime).strftime('%m-%d-%y')
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
+        name_short = file.name.split('_')[1].title()
+        print(name_short)
         if file.suffix == '.obf':
-            files_obf.append([name, modified_time, size])
+            files_obf.append([name, name_short, modified_time, size])
         if file.suffix == '.mwm':
-            files_mwm.append([name, modified_time, size])
+            files_mwm.append([name, name_short, modified_time, size])
     files_obf.sort(key=itemgetter(0))
     files_mwm.sort(key=itemgetter(0))
     return files_obf, files_mwm
