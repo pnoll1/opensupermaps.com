@@ -30,7 +30,6 @@ def list_map_files(directory):
         modified_time = datetime.datetime.fromtimestamp(file.stat().st_mtime).strftime('%m-%d-%y')
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
-        print(file.name)
         name_short = file.name.split('_')[1].title()
         status = file.name.split('_')[3].title()
         if file.suffix == '.obf':
