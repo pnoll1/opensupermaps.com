@@ -31,7 +31,7 @@ def list_map_files(directory):
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
         name_short = file.name.split('_')[1].title()
-        status = file.name.split('_')[3].title()
+        status = file.name.split('_')[-2].title()
         if file.suffix == '.obf':
             files_obf.append([name, name_short, status, modified_time, size])
         #if file.suffix == '.mwm':
