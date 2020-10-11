@@ -30,22 +30,23 @@ def list_map_files(directory):
         modified_time = datetime.datetime.fromtimestamp(file.stat().st_mtime).strftime('%m-%d-%y')
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
+        print(file.name)
         name_short = file.name.split('_')[1].title()
-        print(name_short)
+        status = file.name.split('_')[3].title()
         if file.suffix == '.obf':
-            files_obf.append([name, name_short, modified_time, size])
-        if file.suffix == '.mwm':
-            files_mwm.append([name, name_short, modified_time, size])
+            files_obf.append([name, name_short, status, modified_time, size])
+        #if file.suffix == '.mwm':
+        #    files_mwm.append([name, name_short, modified_time, size])
     files_obf.sort(key=itemgetter(0))
-    files_mwm.sort(key=itemgetter(0))
-    return files_obf, files_mwm
+    #files_mwm.sort(key=itemgetter(0))
+    return files_obf#, files_mwm
 
 def downloads(request):
     context = {}
     context['static'] = '/static'
-    files_obf, files_mwm = list_map_files('static/downloads')
+    files_obf = list_map_files('static/downloads')
     context['files_obf'] = files_obf
-    context['files_mwm'] = files_mwm
+    #context['files_mwm'] = files_mwm
     # check if user logged in
     #if not request.user.is_authenticated:
     #    return redirect('/downloads-ad')
