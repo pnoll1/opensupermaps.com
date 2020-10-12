@@ -30,8 +30,13 @@ def list_map_files(directory):
         modified_time = datetime.datetime.fromtimestamp(file.stat().st_mtime).strftime('%m-%d-%y')
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
-        name_short = file.name.split('_')[1].title()
-        status = file.name.split('_')[-2].title()
+        name_list = file.name.split('_')
+        # handle split states
+        if name_list[2] != 'northamerica':
+            name_short = name_list[1].title() + ' ' + name_list[2].title()
+        else:
+            name_short = name_list[1].title()
+        status = name_list[-2].title()
         if file.suffix == '.obf':
             files_obf.append([name, name_short, status, modified_time, size])
         #if file.suffix == '.mwm':
