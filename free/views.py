@@ -31,11 +31,14 @@ def list_map_files(directory):
         size = round(file.stat().st_size / 1048576, 1)
         name = file.name
         name_list = file.name.split('_')
-        # handle split states
-        if name_list[2] != 'northamerica':
-            name_short = name_list[1].title() + ' ' + name_list[2].title()
-        else:
-            name_short = name_list[1].title()
+        name_short = ''
+        # everyhthing before status is name
+        for i in  name_list:
+            if i != 'alpha':
+                name_short = name_short + ' ' + i.upper()
+            else:
+                break
+        name_short.lstrip(' ')
         status = name_list[-2].title()
         if file.suffix == '.obf':
             files_obf.append([name, name_short, status, modified_time, size])
