@@ -14,35 +14,21 @@
    {% block search %}
    {% endblock %}
    {% block content %}
-     <div class="starter-template">
+     <div class="content">
      <h2>OSMAnd Map files supercharged with open address data</h2>
-     <div class="row">
-       <div class="col-xs-12">
-         <div class="panel panel-default">
-           <div class="panel-heading"> Current OSMAnd File List</div>
-           <div class="table-responsive">
-             <table class="table">
-               <tr>
-                 <td>File Name</td>
-                 <td>Status</td>
-                 <td>Last Modified</td>
-                 <td>Size (MB)</td>
-               </tr>
+                <table class="table">
+                <tr>
+                 <th>File Name</th>
+                 <th>Status</th>
+                 <th>Last Modified</th>
+                 <th>Size (MB)</th>
+                </tr>
                {% for file in files_obf %}
                <tr>
                    <td><a href="{{static}}/downloads/{{file[0]}}">{{file[1]}}</a></td><td>{{file[2]}}</td><td>{{file[3]}}</td><td>{{file[4]}}</td>
                </tr>
                {% endfor %}
              </table>
-         </div>
-       </div>
-       <div class="row">
-         <div class="col-xs-12">
-       <p>Email patrick@patricknoll.com for issues</p>
-     </div>
-   </div>
-     </div>
-     </div>
      </div>
    {% endblock %}
    {% block cover_classes_close %}

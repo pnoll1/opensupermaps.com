@@ -1,5 +1,12 @@
 body {
     margin:0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 hr {
   margin-top: 15px;
@@ -74,6 +81,22 @@ li {
 
 .menu a:hover { 
     color: #fff 
+}
+
+/* table */
+td, 
+th {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 8px;
+}
+
+table {
+    border: 1px solid #ddd;
+    border-spacing: 0;
+    border-radius: 3px;
 }
 
 @media (min-width: 768px) {
