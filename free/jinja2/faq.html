@@ -9,30 +9,15 @@
   <link href="{{static}}/css/starter-template.css" rel="stylesheet">
   {% endblock %}
   {% block cover_classes %}
-  {#<div class="site-wrapper">
-
-    <div class="site-wrapper-inner">#}
    {% endblock %}
    {% block photo %}
-   <div class="row">
-     <div class="col-xs-12">
-       <picture>
-         <source srcset="{{static}}/images/hurricane_ridge.jpg" media="(min-width: 700px)">
-         <source srcset="{{static}}/images/hurricane_ridge_cropped.jpg">
-         <img class="img-responsive pic" src="hurricane_ridge.jpg">
-       </picture>
-     </div>
-   </div>
    {% endblock %}
    {% block search %}
-       <div class="row search">
-
    {% endblock %}
       {% block contact %}
       {% endblock %}
    {% block content %}
-     {#}<div class="inner cover">#}
-       <div class="starter-template">
+       <div class="content">
            <p>Q: How do I use the files?<br>
            A: Download the files to your device and open them. OSMAnd will load the files. You can delete the copy in the downloads folder after loading.</p>
            <p>Q: How do I search for addresses?<br>
@@ -49,11 +34,8 @@
            <p>Q: Where can I find more info?<br>
            A: <a href="https://github.com/pnoll1/osmand_map_creation">Github Repo</a></p>
           </div>
-        {#</div>#}
       {% endblock %}
       {% block cover_classes_close %}
-{#    </div>
-</div>#}
   {% endblock %}
   {% block js %}
 

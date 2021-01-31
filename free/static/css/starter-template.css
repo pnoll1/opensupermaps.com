@@ -1,5 +1,5 @@
 body {
-  padding-top: 50px;
+    margin:0px;
 }
 hr {
   margin-top: 15px;
@@ -11,59 +11,11 @@ p {
 li {
   font-size: 18px;
 }
-.starter-template {
-  text-align: left;
-}
-.form-control{
-  width:80%;
-  display: inline;
-}
-.date {
-  font-size: 120%;
-  }
-
 .iconize{
   height: 40px;
   margin-top: 1rem;
   margin-left: 10px;
   margin-right: 5px;
-}
-.logos{
-  height: 100px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-left: 0px
-}
-.map{
-    height:50vh;
-    }
-.coverage_map{
-    height:30vh;
-}
-.legend {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    color: #555;
-}
-.legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-}
-.counter{
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    color: #555;
 }
 .mail {
   font-size: 38px;
@@ -72,22 +24,72 @@ li {
   margin-top:1rem;
 }
 
-#contact::before {
-  display: block;
-  content: " ";
-  margin-top: -40px;
-  height: 40px;
-  visibility: hidden;
+.wrapper {
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.content {
+    grid-row: 1;
+}
+
+.row {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+}
+
+.row2 {
+    grid-row:2;
+}
+
+/* menu */
+.menu {
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(50px, auto);   background: #222;
+}
+
+.contain {
+    padding:10px 0;
+}
+
+.menu a {
+    color: #9d9d9d;
+    padding: 0px 10px;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#brand {
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+.menu a:hover { 
+    color: #fff 
 }
 
 @media (min-width: 768px) {
-  .logos{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .iconize{
-    margin-top: 0px;
-  }
-  #contact::before {
-
-  }
+    .iconize{
+        margin-top: 0px;
+    }
+    .wrapper {
+        grid-template-columns: repeat(7, 1fr);
+    }
+    .content {
+        grid-column:3/6;
+    }
+    /* put menu items on middle of screen */
+    .menu {
+        grid-template-columns: repeat(7, 1fr);
+    }
+    .contain {
+        grid-column:3/6;
+    }
