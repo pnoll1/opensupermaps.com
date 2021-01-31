@@ -21,8 +21,6 @@
  </head>
 
  <body>
-   {% block cover_classes %}
-    {% endblock %}
     {% block nav %}
            <nav class="menu">
                <div class="contain">
@@ -32,13 +30,7 @@
                 </div>
            </nav>
     {% endblock %}
-    {% block photo %}
-    {% endblock %}
     <div class="wrapper">
-   {% block search %}
-   {% endblock %}
-   {% block contact %}
-   {% endblock %}
    {% block messages %}
     {% if get_messages(request) %}
        <ul class="messages">
@@ -52,10 +44,6 @@
    {% endblock %}
    </div>{#container#}
 
- <!-- Bootstrap core JavaScript
- ================================================== -->
- <!-- Placed at the end of the document so the pages load faster -->
- <!-- <script src="{{static}}/js/bootstrap-native.min.js"></script>-->
  {% block js %}
  {% endblock %}
 </body>
