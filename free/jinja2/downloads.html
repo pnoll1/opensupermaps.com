@@ -16,13 +16,12 @@
                 <table class="table">
                 <tr>
                  <th>File Name</th>
-                 <th>Status</th>
                  <th>Last Modified</th>
                  <th>Size (MB)</th>
                 </tr>
                {% for file in files_obf %}
                <tr>
-                   <td><a href="{{static}}/downloads/{{file[0]}}">{{file[1]}}</a></td><td>{{file[2]}}</td><td>{{file[3]}}</td><td>{{file[4]}}</td>
+                   <td><a href="{{static}}/downloads/{{file[0]}}">{{file[1]}}</a></td><td>{{file[2]}}</td><td>{{file[3]}}</td>
                </tr>
                {% endfor %}
              </table>

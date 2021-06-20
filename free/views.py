@@ -39,9 +39,8 @@ def list_map_files(directory):
             else:
                 break
         name_short.lstrip(' ')
-        status = name_list[-2].title()
         if file.suffix == '.obf':
-            files_obf.append([name, name_short, status, modified_time, size])
+            files_obf.append([name, name_short, modified_time, size])
         #if file.suffix == '.mwm':
         #    files_mwm.append([name, name_short, modified_time, size])
     files_obf.sort(key=itemgetter(0))
