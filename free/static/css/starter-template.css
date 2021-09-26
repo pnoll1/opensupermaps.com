@@ -22,6 +22,29 @@ p {
 li {
   font-size: 18px;
 }
+.bold {
+    display:grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+right
+
+}
+.textleft {
+    grid-column: 2/7;
+}
+.iconleft {
+    grid-column: 1;
+}
+.textright {
+    grid-column: 6/11;
+}
+.iconright {
+    grid-column: 12;
+}
 .iconize{
   height: 40px;
   margin-top: 1rem;
@@ -41,16 +64,18 @@ li {
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
-
 .content {
     grid-row: 1;
     padding: 0 5px;
 }
-
+.rowflex {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
 .row {
     display:grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 15px;
 }
 
 .row2 {
@@ -63,15 +88,17 @@ li {
     position: sticky;
     top: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(50px, auto);   
     background: #222;
 }
 
 .contain {
+    display:grid;
     padding:10px 0;
-    grid-column: 1/span 3;
+    grid-column: auto;
+    align-items: center;
 }
 
 .menu a {
@@ -83,8 +110,11 @@ li {
 }
 
 #brand {
+    display:grid;
     font-size: 22px;
     padding-left: 10px;
+    grid-column: auto;
+    align-items: center;
 }
 
 .menu a:hover { 
@@ -114,18 +144,21 @@ table {
 /* tablet screen and up changes */
 @media (min-width: 768px) {
     .wrapper {
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(12, 1fr);
     }
     .content {
-        grid-column:3/6;
+        grid-column:5/9;
     }
     /* put menu items on middle of screen */
     .menu {
-        grid-template-columns: repeat(7, 1fr);
+        grid-template-columns: repeat(12, 1fr);
     }
-    .contain {
+    #brand {
+        grid-column: 5;
+    }
+    /*.contain {
         grid-column:3/6;
-    }
+    }*/
     .row2 {
         text-align: left;
     }
