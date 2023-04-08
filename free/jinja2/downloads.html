@@ -14,7 +14,7 @@
      <div class="content">
          <h2>OSMAnd Map files supercharged with open address data</h2>
          <div class="row"><img class="iconleft" src="{{static}}/images/go-home.svg"><div class="bold textleft">More Addresses</div></div>
-         <div class="row"><div class="bold textright">Easier To Search</div><img class="iconright" src="{{static}}/images/system-search.svg"></div>
+         <div class="rowright"><div class="bold textright">Easier To Search</div><img class="iconright" src="{{static}}/images/system-search.svg"></div>
          <div class="row"><img class="iconleft" src="{{static}}/images/dialog-ok.svg"><div class="bold textleft">Updated Monthly</div></div>
                 <table class="table">
                 <tr>
@@ -25,7 +25,7 @@
                 </tr>
                {% for file in files_obf %}
                <tr>
-                   <td><a href="{{file[0]}}">{{file[1]}}</a></td><td>{{file[2]}}</td><td>{{file[3]}}</td><td><a href="{{file[4]}}">{{file[5]}}</a></td>
+                   <td><a href="{{file[0]}}">{{file[1]}}</a></td><td>{{file[2]}}</td><td>{{file[3]}}</td><td class="lastcol"><a href="{{file[4]}}">{{file[5]}}</a></td>
                </tr>
                {% endfor %}
              </table>

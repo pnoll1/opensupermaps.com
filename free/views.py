@@ -28,7 +28,7 @@ def list_map_files(directory):
     files_mwm = []
     for file in Path(directory).iterdir():
         modified_time = datetime.datetime.fromtimestamp(file.stat().st_mtime).strftime('%m-%d-%y')
-        size = round(file.stat().st_size / 1048576, 1)
+        size = round(file.stat().st_size / 1048576)
         name = file.name
         if file.suffix == '.obf':
             sha_file = file.with_suffix('.sha256')
