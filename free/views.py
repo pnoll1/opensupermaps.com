@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.http import FileResponse, HttpResponse
+from blog.secret_stuff import b2_endpoint, aws_access_key_id, aws_secret_access_key
 import datetime
 import os
 import re
@@ -21,8 +22,7 @@ class Utc(datetime.tzinfo):
 
 utc = Utc()
 
-s3 = boto3.client('s3')
-
+s3 = boto3.client('s3',aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,endpoint_url=b2_endpoint)
 def list_map_files(directory):
     '''
     input directory path as string
@@ -30,41 +30,25 @@ def list_map_files(directory):
     '''
     files_obf = []
     files_mwm = []
-
-    for file in s3.Bucket('my-bucket').objects.all():
-        modified_time = file.last_modified
-        size = round(file.size / 1048576)
-        name = file.name
-        if file.suffix == '.obf':
-            sha_file = name.with_suffix('.sha256')
-            files_obf.append([file, file.stem.replace('_',' ').upper(), modified_time, size, sha_file, sha_file.stem.replace('_', ' ').upper()])
-        #if file.suffix == '.mwm':
-        #    files_mwm.append([name, name_short, modified_time, size])
-    files_obf.sort(key=itemgetter(0))
-    #files_mwm.sort(key=itemgetter(0))
-    return files_obf#, files_mwm
+    bucket = 'opensupermaps'
+    response = s3.list_objects(Bucket=bucket)
+    for file in response['Contents']:
+        filename = Path(file['Key'])
+        if filename.suffix == '.obf':
+            url = f'https://{bucket}.s3.us-east-005.backblazeb2.com/{filename}'
+            modified_time = file['LastModified'].strftime('%m-%d-%y')
+            size = round(file['Size'] / 1048576)
+            sha_filename = filename.with_suffix('.sha256')
+            sha_url = f'https://{bucket}.s3.us-east-005.backblazeb2.com/{sha_filename}'
+            files_obf.append([url, filename.stem.replace('_',' ').upper(), modified_time, size, sha_url, sha_filename.stem.replace('_', ' ').upper()])
+    return files_obf
 
 def downloads(request):
     context = {}
     context['static'] = '/static'
     files_obf = list_map_files('static/downloads')
     context['files_obf'] = files_obf
-    #context['files_mwm'] = files_mwm
-    # check if user logged in
-    #if not request.user.is_authenticated:
-    #    return redirect('/downloads-ad')
-    # check for valid subscription
-    #try:
-    #    s = subscriptionFix.objects.get(user=request.user.username)
-    #except Exception as e:
-    #    messages.error(request, 'Need valid subscription')
-    #    return redirect('/downloads-ad')
-    # reject expired subscription
-    #if request.user.is_authenticated and datetime.datetime.now(utc) < s.end_date:
-    #    messages.error(request, 'Need valid subscription')
     return render(request, 'downloads.html', context)
-    #else:
-    #return redirect('/downloads-ad')
 
 def contact(request): 
     context = {} 

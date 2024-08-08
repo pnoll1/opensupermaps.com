@@ -1,3 +1,4 @@
 django>3.0,<4.0
 jinja2
 pylibmc
+boto3
